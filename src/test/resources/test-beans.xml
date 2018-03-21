@@ -22,6 +22,7 @@
     		
     		<jaxws:inInterceptors>
     			<ref bean="loggingInInterceptor"/>
+    			<ref bean="orderServiceSoapHeaderInInterceptor"/>
     		</jaxws:inInterceptors>
     		
     		<jaxws:outInterceptors>
@@ -43,6 +44,11 @@
     		
     		<jaxws:outInterceptors>
     			<ref bean="loggingOutInterceptor"/>
+    			<ref bean="orderServiceSoapHeaderOutInterceptor"/>
     		</jaxws:outInterceptors>
     </jaxws:client>
+    
+    <bean id="orderServiceSoapHeaderInInterceptor" class="com.sahoora.cxfdemo.orders.OrderServiceInInterceptor" />
+	<bean id="orderServiceSoapHeaderOutInterceptor" class="com.sahoora.cxfdemo.orders.OrderServiceOutInterceptor" />
+    
 </beans>

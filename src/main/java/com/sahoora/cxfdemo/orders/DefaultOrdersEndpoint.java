@@ -4,8 +4,6 @@ import javax.jws.WebService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.sahoora.schema.order.AccountType;
-import com.sahoora.schema.order.ObjectFactory;
 import com.sahoora.schema.order.OrderInquiryResponseType;
 import com.sahoora.schema.order.OrderInquiryType;
 import com.sahoora.service.orders.Orders;
