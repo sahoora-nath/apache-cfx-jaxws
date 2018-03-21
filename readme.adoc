@@ -1,0 +1,40 @@
+:sectanchors:
+:toc: macro
+:toclevels: 2
+:toc-title: Table of Content
+:numbered:
+
+= Building JAX-WS Web Services with Apache CXF
+
+toc::[]
+
+== Goals
+
+* Implementing contract-first web services using Apache CXF. 
+
+== Overview
+
+This JAX-WS CXF webservice demo will demonstrate to create a CXF webservice with Maven.
+Deploy the project to tomcat
+Execute the webservice in Eclipse.
+
+== Prerequisites
+
+- JDK 1.8
+- Apache Maven 3.2.3
+- Apache Tomcat
+
+== Project Setup
+To create the project from scratch, use terminal and follow the steps with the following command.
+mvn archetype:generate -Dfilter=org.apache.cxf.archetype:
+
+
+=== Compile Project
+
+. Open a Windows or Unix terminal.
+. Using the `git` utility, clone this project to your local workstation.
+
+----
+mvn clean install
+----
+

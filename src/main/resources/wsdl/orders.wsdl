@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:order="http://www.sahoora.com/schema/order" 
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+xmlns:tns="http://www.sahoora.com/service/orders/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="orders" targetNamespace="http://www.sahoora.com/service/orders/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.sahoora.com/service/orders/">
+		<xsd:import namespace="http://www.sahoora.com/schema/order" schemaLocation="../xsd/order.xsd"></xsd:import>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ProcessOrderPlacementRequest">
+    <wsdl:part element="order:orderInquiry" name="orderInquiry"/>
+  </wsdl:message>
+  <wsdl:message name="ProcessOrderPlacementResponse">
+    <wsdl:part element="order:orderInquiryResponse" name="orderInquiryResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="orders">
+    <wsdl:operation name="ProcessOrderPlacement">
+      <wsdl:input message="tns:ProcessOrderPlacementRequest"/>
+      <wsdl:output message="tns:ProcessOrderPlacementResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ordersSOAP" type="tns:orders">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ProcessOrderPlacement">
+      <soap:operation soapAction="http://www.sahoora.com/service/orders/ProcessOrderPlacement"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="orders">
+    <wsdl:port binding="tns:ordersSOAP" name="ordersSOAP">
+      <soap:address location="http://localhost:8080/apache-cxf-jax-ws-demo/service/orders"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
